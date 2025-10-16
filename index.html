@@ -1,4 +1,5 @@
-<!doctype html><meta charset="utf-8">
+<!doctype html>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PTN Portal — Privacy-first Repo Hygiene</title>
 <style>
@@ -20,6 +21,5 @@ const qp=new URLSearchParams(location.search);
 const pay=qp.get('pay')||'https://buymeacoffee.com/yourname/ptn59';
 const utm='gh-pages.ptn-portal';
 document.getElementById('cta').href=pay+(pay.includes('?')?'&':'?')+'utm_source='+encodeURIComponent(utm);
-const price=(qp.get('price')||'59').replace(/[^0-9.]/g,'');
-if(price) document.getElementById('price').textContent=price;
+const price=(qp.get('price')||'59').replace(/[^0-9.]/g,''); if(price) document.getElementById('price').textContent=price;
 </script>
