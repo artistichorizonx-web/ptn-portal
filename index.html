@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PTN Portal — Privacy-first Repo Hygiene</title>
+<meta name="description" content="PTN Lightning Scan — privacy-first, local, low-energy repo hygiene portal.">
+<style>
+:root{--bg:#0f1115;--fg:#e6e9ef;--muted:#9aa3b2;--brand:#5b8cff}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Roboto,sans-serif;display:grid;min-height:100dvh;place-items:center}
+.card{max-width:760px;background:#151922;border:1px solid #222636;border-radius:12px;padding:28px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+h1{margin:.25rem 0 0;font-size:2rem} p{color:var(--muted)}
+.cta{display:inline-block;margin-top:12px;padding:.7rem 1rem;border-radius:10px;background:var(--brand);color:#fff;text-decoration:none;font-weight:600}
+</style>
+</head><body>
+  <div class="card">
+    <small>PTN Lightning Scan</small>
+    <h1>Privacy-first, local, low-energy repo hygiene</h1>
+    <p>Static landing with one clear action. No trackers. No cookies.</p>
+    <a id="cta" class="cta" href="#" target="_blank" rel="noopener"><span id="label">Buy me a coffee</span><span id="price"></span></a>
+    <div id="foot" style="margin-top:10px;color:#9aa3b2;font-size:.9rem">Made with ❤ — PTN Portal</div>
+  </div>
+<script>
+// ?price=59&pay=https://buymeacoffee.com/yourname/ptn59&label=Support%20PTN
+const qp=new URLSearchParams(location.search);
+const price=(qp.get('price')||'59').replace(/[^0-9.]/g,'');
+const pay=qp.get('pay')||'https://buymeacoffee.com/yourname/ptn59';
+const label=qp.get('label')||'Buy me a coffee';
+const utm=qp.get('utm')||'gh-pages.ptn-portal';
+const cta=document.getElementById('cta'), priceEl=document.getElementById('price'), labelEl=document.getElementById('label');
+cta.href=pay+(pay.includes('?')?'&':'?')+'utm_source='+encodeURIComponent(utm);
+labelEl.textContent=label; priceEl.textContent=price?` — $${price}`:'';
+if(location.hash.toLowerCase()==='#tr'){
+  document.title='PTN Portal — Gizlilik odaklı depo hijyeni';
+  document.querySelector('h1').textContent='Gizlilik odaklı, lokal, düşük enerji depo hijyeni';
+  document.querySelector('p').textContent='Tek eylemli statik açılış sayfası. Takip yok. Çerez yok.';
+  labelEl.textContent='Bana kahve ısmarla'; document.getElementById('foot').textContent='Sevgiyle — PTN Portal';
+}
+</script>
+</body></html>
