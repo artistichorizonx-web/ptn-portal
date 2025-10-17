@@ -1,6 +1,6 @@
 (() => {
   const recipient = "0x8b82E60e4353E0f65EC0aD27C852B0c252962b59";
-  const usdc = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48";
+  const usdc = "0x833589fCD6EDB6E08f4c7C32D4f71b54bdA02913";
   const qp = new URLSearchParams(location.search);
   const amountUsd = Number((qp.get('price') || '59').replace(/[^0-9.]/g,'')) || 59;
 
@@ -13,7 +13,7 @@
 
   // Deep link fallback (mobile MetaMask)
   const units = (Math.round(amountUsd * 1e6)).toString(); // 6 decimals for USDC
-  const deepLink = `https://metamask.app.link/send/${usdc}@1/transfer?address=${recipient}&uint256=${units}`;
+  const deepLink = `https://metamask.app.link/send/${usdc}@8453/transfer?address=${recipient}&uint256=${units}`;
 
   if (!window.ethereum) { btn.onclick = () => window.open(deepLink,'_blank'); return; }
 
