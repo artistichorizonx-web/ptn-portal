@@ -40,6 +40,11 @@
       </a>
       <div class="meta">Zero trackers • Works offline • One clear CTA</div>
     <div id="ptn-ctas" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+      <a class="btn" href="https://buymeacoffee.com/yourname/ptn59?utm_source=ptn-portal" target="_blank" rel="noopener">Pay with card — $<span id="price">59</span></a>
+      <a class="btn" id="pay-crypto" style="background:#f6851b" href="javascript:void(0)">Pay with MetaMask (USDC $<span id="mm-amt">59</span>)</a>
+      <a class="btn" style="background:#64748b" href="mailto:you@example.com?subject=PTN%20Lightning%20Scan" target="_blank" rel="noopener">Email me</a>
+    </div>
+    <div id="ptn-ctas" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
       <a class="btn" href="https://buymeacoffee.com/yourname/ptn59?utm_source=ptn-portal" target="_blank" rel="noopener">Pay with card — $59</a>
       <a class="btn" style="background:#16c47f" href="https://example.com/your-crypto-checkout" target="_blank" rel="noopener">Pay with crypto (MetaMask)</a>
       <a class="btn" style="background:#64748b" href="mailto:you@example.com?subject=PTN%20Lightning%20Scan" target="_blank" rel="noopener">Email me</a>
@@ -115,5 +120,7 @@
     };
   })();
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <script src="./metamask.js"></script>
 </body>
 </html>
