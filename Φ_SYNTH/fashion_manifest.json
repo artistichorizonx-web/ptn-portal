@@ -1,0 +1,143 @@
+{
+  "domain": "fashion",
+  "entries": [
+    {
+      "timestamp_utc": "2025-12-08T11:43:22.086986+00:00",
+      "task": {
+        "task_id": "TASK_20251208_114322",
+        "type": "fashion",
+        "design_concept": {
+          "style": "neo-minimal",
+          "color_palette": "#111111",
+          "summary": "A hybrid fashion concept blending technology and emotion."
+        },
+        "status": "pending"
+      },
+      "concept": {
+        "style": "neo-minimal",
+        "color_palette": "#111111",
+        "summary": "A hybrid fashion concept blending technology and emotion.",
+        "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+        "lep_flow": "enabled",
+        "maat_balance": "stable",
+        "timestamp_utc": "2025-12-08T11:43:22.086775+00:00",
+        "greeting": "hey queen"
+      }
+    },
+    {
+      "timestamp_utc": "2025-12-08T12:14:54.599904+00:00",
+      "task": {
+        "task_id": "TASK_20251208_121454",
+        "type": "fashion",
+        "design_concept": {
+          "style": "neo-minimal",
+          "color_palette": "#F5F5F5",
+          "summary": "A hybrid fashion concept blending technology and emotion."
+        },
+        "status": "pending"
+      },
+      "concept": {
+        "style": "neo-minimal",
+        "color_palette": "#F5F5F5",
+        "summary": "A hybrid fashion concept blending technology and emotion.",
+        "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+        "lep_flow": "enabled",
+        "maat_balance": "stable",
+        "timestamp_utc": "2025-12-08T12:14:54.599134+00:00",
+        "greeting": "hey queen"
+      }
+    },
+    {
+      "timestamp_utc": "2025-12-08T12:21:43.772269+00:00",
+      "task": {
+        "task_id": "TASK_20251208_122143",
+        "type": "fashion",
+        "design_concept": {
+          "style": "techno-organic",
+          "color_palette": "#111111",
+          "summary": "A hybrid fashion concept blending technology and emotion."
+        },
+        "status": "pending"
+      },
+      "concept": {
+        "style": "techno-organic",
+        "color_palette": "#111111",
+        "summary": "A hybrid fashion concept blending technology and emotion.",
+        "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+        "lep_flow": "enabled",
+        "maat_balance": "stable",
+        "timestamp_utc": "2025-12-08T12:21:43.771755+00:00",
+        "greeting": "hey queen"
+      }
+    },
+    {
+      "timestamp_utc": "2025-12-08T12:22:25.494933+00:00",
+      "task": {
+        "task_id": "TASK_20251208_122225",
+        "type": "fashion",
+        "design_concept": {
+          "style": "neo-minimal",
+          "color_palette": "#111111",
+          "summary": "A hybrid fashion concept blending technology and emotion."
+        },
+        "status": "pending"
+      },
+      "concept": {
+        "style": "neo-minimal",
+        "color_palette": "#111111",
+        "summary": "A hybrid fashion concept blending technology and emotion.",
+        "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+        "lep_flow": "enabled",
+        "maat_balance": "stable",
+        "timestamp_utc": "2025-12-08T12:22:25.494361+00:00",
+        "greeting": "hey queen"
+      }
+    },
+    {
+      "timestamp_utc": "2025-12-08T16:07:21.446693+00:00",
+      "task": {
+        "task_id": "TASK_20251208_160721",
+        "type": "fashion",
+        "design_concept": {
+          "style": "ethereal",
+          "color_palette": "#111111",
+          "summary": "A hybrid fashion concept blending technology and emotion."
+        },
+        "status": "pending"
+      },
+      "concept": {
+        "style": "ethereal",
+        "color_palette": "#111111",
+        "summary": "A hybrid fashion concept blending technology and emotion.",
+        "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+        "lep_flow": "enabled",
+        "maat_balance": "stable",
+        "timestamp_utc": "2025-12-08T16:07:21.446205+00:00",
+        "greeting": "hey queen"
+      }
+    },
+    {
+      "timestamp_utc": "2025-12-08T16:26:14.589691+00:00",
+      "task": {
+        "task_id": "TASK_20251208_162614",
+        "type": "fashion",
+        "design_concept": {
+          "style": "neo-minimal",
+          "color_palette": "#F5F5F5",
+          "summary": "A hybrid fashion concept blending technology and emotion."
+        },
+        "status": "pending"
+      },
+      "concept": {
+        "style": "neo-minimal",
+        "color_palette": "#F5F5F5",
+        "summary": "A hybrid fashion concept blending technology and emotion.",
+        "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+        "lep_flow": "enabled",
+        "maat_balance": "stable",
+        "timestamp_utc": "2025-12-08T16:26:14.587866+00:00",
+        "greeting": "hey queen"
+      }
+    }
+  ]
+}

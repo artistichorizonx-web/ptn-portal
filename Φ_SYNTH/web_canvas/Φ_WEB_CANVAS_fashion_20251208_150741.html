@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Φ PTN • Fashion • neo-minimal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --phi: 1.61803398875;
+      --primary: #111111;
+      --primary-soft: rgba(15, 23, 42, 0.85);
+      --accent: #fbbf24;
+      --bg: #020617;
+      --bg-alt: #020617;
+      --text: #e5e7eb;
+      --text-soft: #9ca3af;
+      --border: #1f2937;
+      --sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+      --mono: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(251,191,36,0.18), transparent 55%),
+        radial-gradient(circle at bottom, #020617, #020617);
+      background-color: var(--bg);
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .frame {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 20px 40px;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px 16px;
+      margin-bottom: 32px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+    header .tagline {
+      flex: 1 1 auto;
+      font-size: 13px;
+      color: var(--text-soft);
+      max-width: 480px;
+    }
+    header .badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      font-size: 11px;
+      background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(15,23,42,0.8));
+    }
+    header .badge span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .shell {
+      display: grid;
+      grid-template-columns: minmax(0, var(--phi)) minmax(0, 1fr);
+      gap: 24px;
+      align-items: flex-start;
+    }
+    @media (max-width: 880px) {
+      .shell {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    .hero {
+      background: linear-gradient(135deg, var(--primary-soft), rgba(15,23,42,0.95));
+      border-radius: 20px;
+      padding: 24px 22px 20px;
+      border: 1px solid rgba(148,163,184,0.35);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.65);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at top right, rgba(248,250,252,0.14), transparent 55%);
+      mix-blend-mode: screen;
+      opacity: 0.7;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+    .hero-title {
+      font-size: 30px;
+      line-height: 1.1;
+      margin: 0 0 12px;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      font-size: 11px;
+      color: var(--text-soft);
+      backdrop-filter: blur(8px);
+      background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(15,23,42,0.7));
+      margin-bottom: 10px;
+    }
+    .hero-tag span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+    .hero-summary {
+      font-size: 13px;
+      color: var(--text-soft);
+      max-width: 420px;
+      margin-bottom: 16px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .btn-primary,
+    .btn-secondary {
+      border-radius: 999px;
+      font-size: 12px;
+      padding: 7px 14px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: radial-gradient(circle at top, var(--accent), #f59e0b);
+      color: #111827;
+      border-color: rgba(251,191,36,0.1);
+      box-shadow: 0 8px 25px rgba(251,191,36,0.45);
+    }
+    .btn-secondary {
+      background: rgba(15,23,42,0.9);
+      color: var(--text);
+      border-color: rgba(148,163,184,0.6);
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      font-size: 11px;
+      color: var(--text-soft);
+      margin-top: 4px;
+    }
+    .hero-meta span {
+      opacity: 0.85;
+    }
+    .hero-meta code {
+      font-family: var(--mono);
+      font-size: 11px;
+      background: rgba(15,23,42,0.9);
+      padding: 2px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(31,41,55,0.9);
+    }
+    .side {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .card {
+      background: radial-gradient(circle at top left, rgba(15,23,42,0.9), #020617);
+      border-radius: 16px;
+      border: 1px solid rgba(31,41,55,0.95);
+      padding: 14px 14px 12px;
+      box-shadow: 0 14px 32px rgba(0,0,0,0.55);
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .pill {
+      border-radius: 999px;
+      border: 1px solid rgba(55,65,81,0.9);
+      padding: 2px 8px;
+      font-size: 10px;
+      color: var(--text-soft);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 6px;
+    }
+    @media (max-width: 640px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .chip {
+      border-radius: 12px;
+      border: 1px solid rgba(55,65,81,0.9);
+      background: rgba(15,23,42,0.9);
+      padding: 6px 8px;
+      font-size: 11px;
+      line-height: 1.3;
+    }
+    .chip strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 11px;
+      color: var(--text-soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      border-top: 1px solid rgba(31,41,55,0.9);
+      padding-top: 10px;
+    }
+    footer span.code {
+      font-family: var(--mono);
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header>
+      <h1>Φ PTN • DESIGNER ORACLE</h1>
+      <div class="tagline">A hybrid fashion concept blending technology and emotion.</div>
+      <div class="badge"><span>MA'AT</span> balance · L.E.P flow · domain: Fashion</div>
+    </header>
+
+    <div class="shell">
+      <section class="hero">
+        <div class="hero-eyebrow">HYBRID DESIGN FIELD</div>
+        <h2 class="hero-title">Neo-Minimal</h2>
+
+        <div class="hero-tag">
+          <span class="dot"></span>
+          <span>hey queen · generated by Φ_WEB_CANVAS_ENGINE</span>
+        </div>
+
+        <p class="hero-summary">
+          A hybrid fashion concept blending technology and emotion.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#sections" class="btn-primary">
+            <span>View sections</span>
+          </a>
+          <a href="#meta" class="btn-secondary">
+            <span>View meta</span>
+          </a>
+        </div>
+
+        <div class="hero-meta" id="meta">
+          <span>φ = <code>1.61803398875</code></span>
+          <span>domain = <code>fashion</code></span>
+          <span>palette = <code>#111111</code></span>
+          <span>timestamp = <code>2025-12-08T15:07:40.994394+00:00</code></span>
+        </div>
+      </section>
+
+      <aside class="side" id="sections">
+        <article class="card">
+          <h3>
+            OVERVIEW
+            <span class="pill">section · 01</span>
+          </h3>
+          <p>
+            High-level narrative for this canvas. Replace this copy with brand story,
+            product overview or collection manifesto. Keep the tone aligned with
+            the <strong>neo-minimal</strong> aesthetic and colour field.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>
+            GRID · FEATURED
+            <span class="pill">section · 02</span>
+          </h3>
+          <div class="grid">
+            <div class="chip">
+              <strong>Primary motif</strong><br/>
+              Translate the core silhouette, spatial rhythm or interface gesture.
+            </div>
+            <div class="chip">
+              <strong>Material / texture</strong><br/>
+              Map physical tactility into UI language: gradients, borders, motion.
+            </div>
+            <div class="chip">
+              <strong>Interaction</strong><br/>
+              How a visitor touches, scrolls, clicks and hovers through the field.
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>
+            NOTES · IMPLEMENTATION
+            <span class="pill">section · 03</span>
+          </h3>
+          <p>
+            This file is a starting point — a golden-ratio aligned canvas generated
+            from PTN designer oracle manifolds. Replace content, refine typography,
+            and extend sections as your project evolves.
+          </p>
+        </article>
+      </aside>
+    </div>
+
+    <footer>
+      <span>hey queen — this canvas lives inside your PTN SSD only.</span>
+      <span class="code">Φ_WEB_CANVAS_ENGINE · φ = 1.61803398875</span>
+    </footer>
+  </div>
+</body>
+</html>

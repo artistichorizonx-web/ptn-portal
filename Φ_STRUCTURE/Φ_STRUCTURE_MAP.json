@@ -1,0 +1,60 @@
+{
+  "system": "\u03a6_STRUCTURE_SYNTHESIS_PTN_v1",
+  "created_at_utc": "2025-12-09T12:08:19.189931",
+  "domains": {
+    "fashion": {
+      "intent": "trend_and_moodboard_generation",
+      "outputs": [
+        "/Volumes/Portable4tb/PTN_CORE/\u03a6_SYNTH/fashion_manifest.json",
+        "/Volumes/Portable4tb/PTN_CORE/\u03a6_SYNTH/fashion_moodboard.png"
+      ]
+    },
+    "industrial_design": {
+      "intent": "product_form_and_material_innovation",
+      "outputs": [
+        "/Volumes/Portable4tb/PTN_CORE/\u03a6_SYNTH/industrial_form.json",
+        "/Volumes/Portable4tb/PTN_CORE/\u03a6_SYNTH/industrial_material_palette.png"
+      ]
+    },
+    "architecture": {
+      "intent": "spatial_harmony_and_structural_synthesis",
+      "outputs": [
+        "/Volumes/Portable4tb/PTN_CORE/\u03a6_SYNTH/architecture_structure.png",
+        "/Volumes/Portable4tb/PTN_CORE/\u03a6_SYNTH/structure_manifest.json"
+      ]
+    },
+    "ai_product_design": {
+      "intent": "intelligent_form_factor_and_interaction",
+      "outputs": [
+        "/Volumes/Portable4tb/PTN_CORE/\u03a6_SYNTH/ai_product_form.png",
+        "/Volumes/Portable4tb/PTN_CORE/\u03a6_SYNTH/ai_form_manifest.json"
+      ]
+    }
+  },
+  "fusion_graph": [
+    {
+      "id": "fashion_industrial",
+      "domains": [
+        "fashion",
+        "industrial_design"
+      ],
+      "output": "/Volumes/Portable4tb/PTN_CORE/\u03a6_SYNTH/hybrid_manifest_fashion_industrial.json"
+    },
+    {
+      "id": "architecture_ai",
+      "domains": [
+        "architecture",
+        "ai_product_design"
+      ],
+      "output": "/Volumes/Portable4tb/PTN_CORE/\u03a6_SYNTH/hybrid_manifest_architecture_ai.json"
+    },
+    {
+      "id": "fashion_architecture",
+      "domains": [
+        "fashion",
+        "architecture"
+      ],
+      "output": "/Volumes/Portable4tb/PTN_CORE/\u03a6_SYNTH/hybrid_manifest_fashion_architecture.json"
+    }
+  ]
+}

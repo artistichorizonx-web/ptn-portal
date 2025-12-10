@@ -1,0 +1,219 @@
+{
+  "fusion_id": "architecture_ai",
+  "domains": [
+    "architecture",
+    "ai_product_design"
+  ],
+  "entries": [
+    {
+      "timestamp_utc": "2025-12-09T08:51:20.406263+00:00",
+      "fusion_id": "architecture_ai",
+      "source_domains": [
+        "architecture",
+        "ai_product_design"
+      ],
+      "task_ids": [
+        "TASK_20251208_121454",
+        "TASK_20251208_121454"
+      ],
+      "summary": "Hybrid synthesis between architecture and ai_product_design concepts.",
+      "blend": {
+        "primary_concept": {
+          "style": "parametric",
+          "color_palette": "#E5E7EB",
+          "summary": "An architectural vision balancing brutalist mass and fluid light.",
+          "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+          "lep_flow": "enabled",
+          "maat_balance": "stable",
+          "timestamp_utc": "2025-12-08T12:14:54.609642+00:00",
+          "greeting": "hey queen"
+        },
+        "secondary_concept": {
+          "style": "haptic-first",
+          "color_palette": "#7C3AED",
+          "summary": "An AI-driven device that feels soft, intuitive, and respectful.",
+          "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+          "lep_flow": "enabled",
+          "maat_balance": "stable",
+          "timestamp_utc": "2025-12-08T12:14:54.614591+00:00",
+          "greeting": "hey queen"
+        }
+      }
+    },
+    {
+      "timestamp_utc": "2025-12-09T08:51:20.406268+00:00",
+      "fusion_id": "architecture_ai",
+      "source_domains": [
+        "architecture",
+        "ai_product_design"
+      ],
+      "task_ids": [
+        "TASK_20251208_121454",
+        "TASK_20251208_122143"
+      ],
+      "summary": "Hybrid synthesis between architecture and ai_product_design concepts.",
+      "blend": {
+        "primary_concept": {
+          "style": "parametric",
+          "color_palette": "#E5E7EB",
+          "summary": "An architectural vision balancing brutalist mass and fluid light.",
+          "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+          "lep_flow": "enabled",
+          "maat_balance": "stable",
+          "timestamp_utc": "2025-12-08T12:14:54.609642+00:00",
+          "greeting": "hey queen"
+        },
+        "secondary_concept": {
+          "style": "ambient-intelligence",
+          "color_palette": "#7C3AED",
+          "summary": "An AI-driven device that feels soft, intuitive, and respectful.",
+          "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+          "lep_flow": "enabled",
+          "maat_balance": "stable",
+          "timestamp_utc": "2025-12-08T12:21:43.791686+00:00",
+          "greeting": "hey queen"
+        }
+      }
+    },
+    {
+      "timestamp_utc": "2025-12-09T08:51:20.406270+00:00",
+      "fusion_id": "architecture_ai",
+      "source_domains": [
+        "architecture",
+        "ai_product_design"
+      ],
+      "task_ids": [
+        "TASK_20251208_121454",
+        "TASK_20251209_085120"
+      ],
+      "summary": "Hybrid synthesis between architecture and ai_product_design concepts.",
+      "blend": {
+        "primary_concept": {
+          "style": "parametric",
+          "color_palette": "#E5E7EB",
+          "summary": "An architectural vision balancing brutalist mass and fluid light.",
+          "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+          "lep_flow": "enabled",
+          "maat_balance": "stable",
+          "timestamp_utc": "2025-12-08T12:14:54.609642+00:00",
+          "greeting": "hey queen"
+        },
+        "secondary_concept": {
+          "style": "ambient-intelligence",
+          "color_palette": "#7C3AED",
+          "summary": "An AI-driven device that feels soft, intuitive, and respectful.",
+          "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+          "lep_flow": "enabled",
+          "maat_balance": "stable",
+          "timestamp_utc": "2025-12-09T08:51:20.396701+00:00",
+          "greeting": "hey queen"
+        }
+      }
+    },
+    {
+      "timestamp_utc": "2025-12-09T08:51:20.406272+00:00",
+      "fusion_id": "architecture_ai",
+      "source_domains": [
+        "architecture",
+        "ai_product_design"
+      ],
+      "task_ids": [
+        "TASK_20251208_122143",
+        "TASK_20251208_121454"
+      ],
+      "summary": "Hybrid synthesis between architecture and ai_product_design concepts.",
+      "blend": {
+        "primary_concept": {
+          "style": "brutalist",
+          "color_palette": "#FFFFFF",
+          "summary": "An architectural vision balancing brutalist mass and fluid light.",
+          "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+          "lep_flow": "enabled",
+          "maat_balance": "stable",
+          "timestamp_utc": "2025-12-08T12:21:43.784632+00:00",
+          "greeting": "hey queen"
+        },
+        "secondary_concept": {
+          "style": "haptic-first",
+          "color_palette": "#7C3AED",
+          "summary": "An AI-driven device that feels soft, intuitive, and respectful.",
+          "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+          "lep_flow": "enabled",
+          "maat_balance": "stable",
+          "timestamp_utc": "2025-12-08T12:14:54.614591+00:00",
+          "greeting": "hey queen"
+        }
+      }
+    },
+    {
+      "timestamp_utc": "2025-12-09T08:51:20.406274+00:00",
+      "fusion_id": "architecture_ai",
+      "source_domains": [
+        "architecture",
+        "ai_product_design"
+      ],
+      "task_ids": [
+        "TASK_20251208_122143",
+        "TASK_20251208_122143"
+      ],
+      "summary": "Hybrid synthesis between architecture and ai_product_design concepts.",
+      "blend": {
+        "primary_concept": {
+          "style": "brutalist",
+          "color_palette": "#FFFFFF",
+          "summary": "An architectural vision balancing brutalist mass and fluid light.",
+          "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+          "lep_flow": "enabled",
+          "maat_balance": "stable",
+          "timestamp_utc": "2025-12-08T12:21:43.784632+00:00",
+          "greeting": "hey queen"
+        },
+        "secondary_concept": {
+          "style": "ambient-intelligence",
+          "color_palette": "#7C3AED",
+          "summary": "An AI-driven device that feels soft, intuitive, and respectful.",
+          "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+          "lep_flow": "enabled",
+          "maat_balance": "stable",
+          "timestamp_utc": "2025-12-08T12:21:43.791686+00:00",
+          "greeting": "hey queen"
+        }
+      }
+    },
+    {
+      "timestamp_utc": "2025-12-09T08:51:20.406275+00:00",
+      "fusion_id": "architecture_ai",
+      "source_domains": [
+        "architecture",
+        "ai_product_design"
+      ],
+      "task_ids": [
+        "TASK_20251208_122143",
+        "TASK_20251209_085120"
+      ],
+      "summary": "Hybrid synthesis between architecture and ai_product_design concepts.",
+      "blend": {
+        "primary_concept": {
+          "style": "brutalist",
+          "color_palette": "#FFFFFF",
+          "summary": "An architectural vision balancing brutalist mass and fluid light.",
+          "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+          "lep_flow": "enabled",
+          "maat_balance": "stable",
+          "timestamp_utc": "2025-12-08T12:21:43.784632+00:00",
+          "greeting": "hey queen"
+        },
+        "secondary_concept": {
+          "style": "ambient-intelligence",
+          "color_palette": "#7C3AED",
+          "summary": "An AI-driven device that feels soft, intuitive, and respectful.",
+          "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+          "lep_flow": "enabled",
+          "maat_balance": "stable",
+          "timestamp_utc": "2025-12-09T08:51:20.396701+00:00",
+          "greeting": "hey queen"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "domain": "architecture",
+  "entries": [
+    {
+      "timestamp_utc": "2025-12-08T12:14:54.609659+00:00",
+      "task": {
+        "task_id": "TASK_20251208_121454",
+        "type": "architecture",
+        "design_concept": {
+          "style": "parametric",
+          "color_palette": "#E5E7EB",
+          "summary": "An architectural vision balancing brutalist mass and fluid light."
+        },
+        "status": "pending"
+      },
+      "concept": {
+        "style": "parametric",
+        "color_palette": "#E5E7EB",
+        "summary": "An architectural vision balancing brutalist mass and fluid light.",
+        "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+        "lep_flow": "enabled",
+        "maat_balance": "stable",
+        "timestamp_utc": "2025-12-08T12:14:54.609642+00:00",
+        "greeting": "hey queen"
+      }
+    },
+    {
+      "timestamp_utc": "2025-12-08T12:21:43.784671+00:00",
+      "task": {
+        "task_id": "TASK_20251208_122143",
+        "type": "architecture",
+        "design_concept": {
+          "style": "brutalist",
+          "color_palette": "#FFFFFF",
+          "summary": "An architectural vision balancing brutalist mass and fluid light."
+        },
+        "status": "pending"
+      },
+      "concept": {
+        "style": "brutalist",
+        "color_palette": "#FFFFFF",
+        "summary": "An architectural vision balancing brutalist mass and fluid light.",
+        "engine": "Φ_PTN_DESIGNER_ORACLE_v1",
+        "lep_flow": "enabled",
+        "maat_balance": "stable",
+        "timestamp_utc": "2025-12-08T12:21:43.784632+00:00",
+        "greeting": "hey queen"
+      }
+    }
+  ]
+}

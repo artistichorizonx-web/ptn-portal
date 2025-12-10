@@ -1,0 +1,24 @@
+{
+  "script_id": "\u03a6_IRIS_GALLERY_ORACLE_v1",
+  "phi": 1.61803398875,
+  "ptn_root": "/Volumes/Portable4tb/PTN_CORE",
+  "domain": "fashion",
+  "concept": {
+    "style": "neo-minimal",
+    "color_palette": "#F5F5F5",
+    "summary": "A hybrid fashion concept blending technology and emotion.",
+    "engine": "\u03a6_PTN_DESIGNER_ORACLE_v1",
+    "lep_flow": "enabled",
+    "maat_balance": "stable",
+    "timestamp_utc": "2025-12-08T16:26:14.587866+00:00",
+    "greeting": "hey queen"
+  },
+  "prompt": "neo-minimal fashion concept, A hybrid fashion concept blending technology and emotion. color palette #F5F5F5, full body fashion editorial photograph of a single model, clear outfit silhouette, detailed fabric texture, gradient background, studio soft light, volumetric lighting, high contrast, golden ratio composition, 4k, ultra detailed",
+  "images": [
+    "/Volumes/Portable4tb/PTN_CORE/\u03a6_SYNTH/visual_output/gallery_fashion_20251209_122702/ptn_gallery_01.png",
+    "/Volumes/Portable4tb/PTN_CORE/\u03a6_SYNTH/visual_output/gallery_fashion_20251209_122702/ptn_gallery_02.png",
+    "/Volumes/Portable4tb/PTN_CORE/\u03a6_SYNTH/visual_output/gallery_fashion_20251209_122702/ptn_gallery_03.png"
+  ],
+  "timestamp_utc": "2025-12-09T16:58:38.976810",
+  "message": "Gallery images generated from PTN manifolds."
+}
