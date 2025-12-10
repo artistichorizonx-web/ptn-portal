@@ -35,7 +35,7 @@
       <small>PTN Lightning Scan</small>
       <h1>Privacy-first, local, low-energy repo hygiene</h1>
       <p class="lead">15-minute local scan → HTML dashboard + CSVs + ZIP. <strong>No uploads.</strong></p>
-      <a id="cta" class="cta" href="#" target="_blank" rel="noopener">
+      <a id="cta" class="cta" href="#" target="_blank" rel="noopener" style="display:none">
         <span id="label">Buy me a coffee</span> — $<span id="price">59</span>
       </a>
       <div class="meta">Zero trackers • Works offline • One clear CTA</div>
@@ -44,16 +44,12 @@
       <a class="btn" id="pay-crypto" style="background:#f6851b" href="javascript:void(0)">Pay with MetaMask (USDC $<span id="mm-amt">59</span>)</a>
       <a class="btn" style="background:#64748b" href="mailto:you@example.com?subject=PTN%20Lightning%20Scan" target="_blank" rel="noopener">Email me</a>
     </div>
-    <div id="ptn-ctas" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-      <a class="btn" href="https://buymeacoffee.com/yourname/ptn59?utm_source=ptn-portal" target="_blank" rel="noopener">Pay with card — $59</a>
-      <a class="btn" style="background:#16c47f" href="https://example.com/your-crypto-checkout" target="_blank" rel="noopener">Pay with crypto (MetaMask)</a>
-      <a class="btn" style="background:#64748b" href="mailto:you@example.com?subject=PTN%20Lightning%20Scan" target="_blank" rel="noopener">Email me</a>
+    <div style="margin-top:12px; padding:10px; background:rgba(91, 140, 255, 0.1); border:1px solid var(--brand); border-radius:8px; font-size:0.9rem;">
+      <strong>🚀 PTN Coin (Coming Soon)</strong><br>
+      The official token of the Phi Tractatus Nexus ecosystem. <br>
+      <span style="color:var(--muted)">Contract ready. Deployment pending.</span>
     </div>
-    <div class="payrow" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
-      <a class="btn" href="https://buymeacoffee.com/yourname/ptn59?utm_source=ptn-portal" target="_blank" rel="noopener">Pay with card — $59</a>
-      <a class="btn" style="background:#0ea5e9" href="https://wa.me/905551112233?text=Hi%20PTN,%20I%20want%20to%20pay%20with%20crypto/bank" target="_blank" rel="noopener">Message on WhatsApp</a>
-      <a class="btn" style="background:#64748b" href="mailto:you@example.com?subject=PTN%20Lightning%20Scan" target="_blank" rel="noopener">Email me</a>
-    </div>
+
     </section>
 
     <section class="grid">
@@ -97,29 +93,6 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
   <script>
-  (async()=>{
-    const recipient = "0x8b82E60e4353E0f65EC0aD27C852B0c252962b59";
-    const amountUsd = 59;
-    const usdc = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"; // USDC (Ethereum mainnet, 6 decimals)
-    const btn = document.getElementById("pay-crypto"); if(!btn) return;
-    const mobileDeepLink = `https://metamask.app.link/send/${usdc}@1/transfer?address=${recipient}&uint256=${amountUsd*1000000}`;
-    if(!window.ethereum){ btn.onclick=()=>window.open(mobileDeepLink, "_blank"); return; }
-    btn.onclick = async ()=>{
-      try{
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        await provider.send("eth_requestAccounts",[]);
-        const net = await provider.getNetwork();
-        if(net.chainId !== 1){ await provider.send("wallet_switchEthereumChain",[{chainId:"0x1"}]); }
-        const signer = provider.getSigner();
-        const erc20 = new ethers.Contract(usdc,["function transfer(address to,uint256 amount) returns (bool)"], signer);
-        const amount = BigInt(amountUsd) * 10n**6n;
-        const tx = await erc20.transfer(recipient, amount);
-        const old = btn.textContent; btn.textContent = "Waiting for confirmation...";
-        await tx.wait(); btn.textContent = "Paid via MetaMask ✔";
-      }catch(e){ alert(e?.message||String(e)); }
-    };
-  })();
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
   <script src="./metamask.js"></script>
 </body>
