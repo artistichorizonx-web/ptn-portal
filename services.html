@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTN Services - Web3 & AI Solutions</title>
+    <meta name="description" content="Professional Web3 development, smart contract audits, and AI automation services. Token deployment, blockchain consulting, and more.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #12121a;
+            --accent: #f39c12;
+            --accent2: #9b59b6;
+            --text: #ffffff;
+            --text-muted: #8a8a9a;
+            --success: #2ecc71;
+            --border: rgba(255,255,255,0.1);
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            border-radius: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+        
+        .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 20px; }
+        
+        .badge-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+        .badge {
+            background: rgba(243,156,18,0.2);
+            border: 1px solid var(--accent);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        .badge.live { background: rgba(46,204,113,0.2); border-color: var(--success); }
+        
+        /* Services Grid */
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--accent);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .service-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(243,156,18,0.15);
+        }
+        
+        .service-card.featured {
+            border: 2px solid var(--accent);
+            background: linear-gradient(135deg, rgba(243,156,18,0.1), rgba(155,89,182,0.1));
+        }
+        
+        .service-card.featured::before {
+            content: "⭐ POPULAR";
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--accent);
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        
+        .service-icon { font-size: 40px; margin-bottom: 15px; }
+        .service-title { font-size: 1.3rem; margin-bottom: 10px; color: var(--text); }
+        .service-desc { color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem; }
+        
+        .service-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .service-details {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .service-details li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .service-details li::before { content: "✓"; color: var(--success); font-weight: bold; }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, var(--accent), #e67e22);
+            color: #000;
+        }
+        
+        .btn-primary:hover { transform: scale(1.02); box-shadow: 0 5px 20px rgba(243,156,18,0.4); }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        
+        .btn-secondary:hover { background: var(--accent); color: #000; }
+        
+        /* Process */
+        .process {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        
+        .step-title { font-size: 1.1rem; margin-bottom: 10px; }
+        .step-desc { color: var(--text-muted); font-size: 0.9rem; }
+        
+        /* Trust */
+        .trust {
+            text-align: center;
+            padding: 40px;
+            background: rgba(46,204,113,0.1);
+            border: 1px solid var(--success);
+            border-radius: 16px;
+            margin-bottom: 50px;
+        }
+        
+        .trust h3 { color: var(--success); margin-bottom: 20px; }
+        
+        .trust-items {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .trust-item { text-align: center; }
+        .trust-value { font-size: 2rem; font-weight: bold; color: var(--text); }
+        .trust-label { color: var(--text-muted); font-size: 0.9rem; }
+        
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, rgba(243,156,18,0.2), rgba(155,89,182,0.2));
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .cta h2 { font-size: 2rem; margin-bottom: 15px; }
+        .cta p { color: var(--text-muted); margin-bottom: 25px; }
+        .cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .cta .btn { width: auto; padding: 15px 35px; }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+        }
+        
+        footer a { color: var(--accent); text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .service-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <h1>🔮 PTN Professional Services</h1>
+            <p>Web3 Development • Smart Contract Audits • AI Automation</p>
+            <p>Fast delivery, competitive prices, proven results.</p>
+            
+            <div class="badge-row">
+                <span class="badge live">✓ PTN Token Live on Mainnet</span>
+                <span class="badge">🔐 Verified Developer</span>
+                <span class="badge">⚡ 24-48h Response</span>
+            </div>
+        </section>
+        
+        <!-- Services -->
+        <h2 class="section-title">💼 Our Services</h2>
+        
+        <div class="services-grid">
+            <!-- Smart Contract Audit -->
+            <div class="service-card featured">
+                <div class="service-icon">🔐</div>
+                <h3 class="service-title">Smart Contract Audit</h3>
+                <p class="service-desc">Comprehensive security review of your Solidity smart contracts. Identify vulnerabilities before they cost you.</p>
+                <div class="service-price">$500 - $5,000</div>
+                <ul class="service-details">
+                    <li>Full code review & analysis</li>
+                    <li>Vulnerability detection</li>
+                    <li>Gas optimization report</li>
+                    <li>Detailed PDF report</li>
+                    <li>Fix recommendations</li>
+                </ul>
+                <a href="mailto:artistichotizonx@gmail.com?subject=Smart Contract Audit Request" class="btn btn-primary">Request Audit</a>
+            </div>
+            
+            <!-- Token Deployment -->
+            <div class="service-card">
+                <div class="service-icon">🪙</div>
+                <h3 class="service-title">Token Deployment</h3>
+                <p class="service-desc">Deploy your ERC20/ERC721 token on Ethereum, Base, Polygon, or BSC. Verified on Etherscan.</p>
+                <div class="service-price">$200 - $1,000</div>
+                <ul class="service-details">
+                    <li>Custom token contract</li>
+                    <li>Mainnet deployment</li>
+                    <li>Etherscan verification</li>
+                    <li>Logo & metadata setup</li>
+                    <li>Transfer/admin functions</li>
+                </ul>
+                <a href="mailto:artistichotizonx@gmail.com?subject=Token Deployment Request" class="btn btn-primary">Get Started</a>
+            </div>
+            
+            <!-- Web3 Integration -->
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3 class="service-title">Web3 Integration</h3>
+                <p class="service-desc">Add MetaMask, wallet connect, and blockchain functionality to your existing website or app.</p>
+                <div class="service-price">$300 - $2,000</div>
+                <ul class="service-details">
+                    <li>MetaMask integration</li>
+                    <li>Wallet connection UI</li>
+                    <li>Token payments</li>
+                    <li>NFT minting page</li>
+                    <li>Transaction handling</li>
+                </ul>
+                <a href="mailto:artistichotizonx@gmail.com?subject=Web3 Integration Request" class="btn btn-primary">Discuss Project</a>
+            </div>
+            
+            <!-- AI Automation -->
+            <div class="service-card featured">
+                <div class="service-icon">🤖</div>
+                <h3 class="service-title">AI & Automation</h3>
+                <p class="service-desc">Custom Python scripts, AI chatbots, data pipelines, and workflow automation.</p>
+                <div class="service-price">$100 - $1,000</div>
+                <ul class="service-details">
+                    <li>Python automation scripts</li>
+                    <li>AI/LLM integration</li>
+                    <li>Data processing pipelines</li>
+                    <li>API integrations</li>
+                    <li>Scheduled tasks & bots</li>
+                </ul>
+                <a href="mailto:artistichotizonx@gmail.com?subject=AI Automation Request" class="btn btn-primary">Automate Now</a>
+            </div>
+            
+            <!-- Repo Hygiene -->
+            <div class="service-card">
+                <div class="service-icon">🧹</div>
+                <h3 class="service-title">Repository Hygiene</h3>
+                <p class="service-desc">Clean up your Git repositories. Remove secrets, optimize structure, improve documentation.</p>
+                <div class="service-price">$50 - $300</div>
+                <ul class="service-details">
+                    <li>Security scan</li>
+                    <li>Secret detection</li>
+                    <li>Structure cleanup</li>
+                    <li>Documentation review</li>
+                    <li>CI/CD optimization</li>
+                </ul>
+                <a href="mailto:artistichotizonx@gmail.com?subject=Repo Hygiene Request" class="btn btn-secondary">Get Quote</a>
+            </div>
+            
+            <!-- Consulting -->
+            <div class="service-card">
+                <div class="service-icon">💡</div>
+                <h3 class="service-title">Blockchain Consulting</h3>
+                <p class="service-desc">Expert advice on Web3 strategy, tokenomics, technical architecture, and go-to-market.</p>
+                <div class="service-price">$50/hour</div>
+                <ul class="service-details">
+                    <li>1-on-1 video calls</li>
+                    <li>Technical architecture</li>
+                    <li>Tokenomics design</li>
+                    <li>Launch strategy</li>
+                    <li>Team augmentation</li>
+                </ul>
+                <a href="mailto:artistichotizonx@gmail.com?subject=Consulting Request" class="btn btn-secondary">Book Call</a>
+            </div>
+        </div>
+        
+        <!-- Process -->
+        <section class="process">
+            <h2 class="section-title">⚡ How It Works</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4 class="step-title">Contact</h4>
+                    <p class="step-desc">Send your project details via email or Ko-fi message</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4 class="step-title">Quote</h4>
+                    <p class="step-desc">Receive a detailed quote within 24 hours</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4 class="step-title">Payment</h4>
+                    <p class="step-desc">Pay via crypto, Ko-fi, or bank transfer</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4 class="step-title">Delivery</h4>
+                    <p class="step-desc">Get your deliverables on time, every time</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Trust Signals -->
+        <section class="trust">
+            <h3>🏆 Why Choose PTN?</h3>
+            <div class="trust-items">
+                <div class="trust-item">
+                    <div class="trust-value">1B+</div>
+                    <div class="trust-label">PTN Tokens Deployed</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-value">ETH</div>
+                    <div class="trust-label">Mainnet Experience</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-value">24h</div>
+                    <div class="trust-label">Response Time</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-value">100%</div>
+                    <div class="trust-label">Satisfaction Goal</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA -->
+        <section class="cta">
+            <h2>Ready to Build Something Amazing?</h2>
+            <p>Get a free consultation and quote for your project today.</p>
+            <div class="cta-buttons">
+                <a href="mailto:artistichotizonx@gmail.com?subject=New Project Inquiry" class="btn btn-primary">📧 Email Us</a>
+                <a href="https://ko-fi.com/ptnnexus" target="_blank" class="btn btn-secondary">☕ Ko-fi</a>
+                <a href="donate.html" class="btn btn-secondary">💜 Support PTN</a>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <p>Built with 💜 by <a href="https://github.com/artistichorizonx-web">PTN Team</a></p>
+            <p style="margin-top: 10px;">
+                <a href="index.html">Home</a> • 
+                <a href="donate.html">Donate</a> • 
+                <a href="https://etherscan.io/token/0x544DD257F3917fDa2C1D895b775f29BF41158dE6">Token</a> • 
+                <a href="https://github.com/artistichorizonx-web/PhiTractatusNexus-PTN">GitHub</a>
+            </p>
+            <p style="margin-top: 15px; font-size: 0.8rem; color: #666;">
+                hey queen 🌸 • Φ = 1.61803398875
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
