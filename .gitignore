@@ -3,3 +3,5 @@
 
 # Local-only client/work files
 fiverr/
+.ptn/ports/locks/
+.mind/locks/
