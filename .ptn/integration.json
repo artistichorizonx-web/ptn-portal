@@ -1,0 +1,8 @@
+{
+  "repo": "ptn-portal",
+  "integrated": true,
+  "type": "web_site",
+  "entrypoints": ["index.html", "donate.html"],
+  "role": "donation_gateway",
+  "notes": "Public donation portal and web gateway."
+}

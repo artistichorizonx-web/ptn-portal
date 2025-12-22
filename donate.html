@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support PTN - Phi Tractatus Nexus</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .logo {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #f39c12, #e74c3c, #9b59b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+        }
+        
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .support-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .support-card:hover {
+            transform: translateY(-5px);
+            border-color: #f39c12;
+            box-shadow: 0 10px 40px rgba(243, 156, 18, 0.2);
+        }
+        
+        .card-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #f39c12;
+        }
+        
+        .card-desc {
+            color: #a0a0a0;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #f39c12, #e74c3c);
+            color: #fff;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(243, 156, 18, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #f39c12;
+            color: #f39c12;
+        }
+        
+        .btn-secondary:hover {
+            background: #f39c12;
+            color: #1a1a2e;
+        }
+        
+        .crypto-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .crypto-section h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #f39c12;
+        }
+        
+        .wallet-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .wallet-icon {
+            font-size: 30px;
+        }
+        
+        .wallet-info {
+            flex: 1;
+        }
+        
+        .wallet-label {
+            font-size: 0.8rem;
+            color: #a0a0a0;
+            margin-bottom: 5px;
+        }
+        
+        .wallet-address {
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #fff;
+            word-break: break-all;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .wallet-address:hover {
+            background: rgba(243, 156, 18, 0.2);
+        }
+        
+        .copy-btn {
+            background: #f39c12;
+            border: none;
+            color: #1a1a2e;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        
+        .copy-btn:hover {
+            background: #e74c3c;
+            color: #fff;
+        }
+        
+        .tiers {
+            margin-top: 40px;
+        }
+        
+        .tiers h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #f39c12;
+        }
+        
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .tier {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .tier-name {
+            font-size: 1.1rem;
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+        
+        .tier-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .tier-benefits {
+            list-style: none;
+            font-size: 0.85rem;
+            color: #a0a0a0;
+        }
+        
+        .tier-benefits li {
+            margin-bottom: 8px;
+        }
+        
+        .tier-benefits li::before {
+            content: "✓ ";
+            color: #2ecc71;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0a0a0;
+        }
+        
+        .footer a {
+            color: #f39c12;
+            text-decoration: none;
+        }
+        
+        .ptn-token-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #9b59b6, #3498db);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .live-badge {
+            display: inline-block;
+            background: #2ecc71;
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            animation: pulse 2s infinite;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">🔮</div>
+            <h1>Support PTN</h1>
+            <p class="subtitle">Phi Tractatus Nexus - Building the Future of Web3</p>
+            <span class="ptn-token-badge">PTN Token Live on Ethereum</span>
+            <span class="live-badge">● MAINNET</span>
+        </header>
+        
+        <div class="support-grid">
+            <div class="support-card">
+                <div class="card-icon">☕</div>
+                <h3 class="card-title">Buy Me a Coffee</h3>
+                <p class="card-desc">Quick one-time support to fuel development</p>
+                <a href="https://ko-fi.com/ptnnexus" target="_blank" class="btn btn-primary">Support on Ko-fi</a>
+            </div>
+            
+            <div class="support-card">
+                <div class="card-icon">💎</div>
+                <h3 class="card-title">GitHub Sponsors</h3>
+                <p class="card-desc">Monthly sponsorship with exclusive perks</p>
+                <a href="https://github.com/sponsors/artistichorizonx-web" target="_blank" class="btn btn-primary">Become a Sponsor</a>
+            </div>
+            
+            <div class="support-card">
+                <div class="card-icon">🪙</div>
+                <h3 class="card-title">PTN Token</h3>
+                <p class="card-desc">Support by holding PTN tokens</p>
+                <a href="https://etherscan.io/token/0x544DD257F3917fDa2C1D895b775f29BF41158dE6" target="_blank" class="btn btn-secondary">View on Etherscan</a>
+            </div>
+        </div>
+        
+        <div class="crypto-section">
+            <h2>💰 Crypto Donations</h2>
+            
+            <div class="wallet-box">
+                <div class="wallet-icon">⟠</div>
+                <div class="wallet-info">
+                    <div class="wallet-label">Ethereum (ETH) - ERC20 Tokens</div>
+                    <div class="wallet-address" onclick="copyAddress(this)" title="Click to copy">0x8b82E60e4353E0f65EC0aD27C852B0c252962b59</div>
+                </div>
+                <button class="copy-btn" onclick="copyAddress(this.previousElementSibling.querySelector('.wallet-address'))">Copy</button>
+            </div>
+            
+            <div class="wallet-box">
+                <div class="wallet-icon">🔮</div>
+                <div class="wallet-info">
+                    <div class="wallet-label">PTN Token Contract (Ethereum Mainnet)</div>
+                    <div class="wallet-address" onclick="copyAddress(this)" title="Click to copy">0x544DD257F3917fDa2C1D895b775f29BF41158dE6</div>
+                </div>
+                <button class="copy-btn" onclick="copyAddress(this.previousElementSibling.querySelector('.wallet-address'))">Copy</button>
+            </div>
+        </div>
+        
+        <div class="tiers">
+            <h2>🏆 Supporter Tiers</h2>
+            <div class="tier-grid">
+                <div class="tier">
+                    <div class="tier-name">☕ Coffee</div>
+                    <div class="tier-price">$5</div>
+                    <ul class="tier-benefits">
+                        <li>Thank you mention</li>
+                        <li>Early updates</li>
+                    </ul>
+                </div>
+                
+                <div class="tier">
+                    <div class="tier-name">🌟 Supporter</div>
+                    <div class="tier-price">$25</div>
+                    <ul class="tier-benefits">
+                        <li>All previous perks</li>
+                        <li>PTN Discord role</li>
+                        <li>Monthly newsletter</li>
+                    </ul>
+                </div>
+                
+                <div class="tier">
+                    <div class="tier-name">💎 Patron</div>
+                    <div class="tier-price">$100</div>
+                    <ul class="tier-benefits">
+                        <li>All previous perks</li>
+                        <li>Name in credits</li>
+                        <li>Direct chat access</li>
+                        <li>PTN Token airdrop</li>
+                    </ul>
+                </div>
+                
+                <div class="tier">
+                    <div class="tier-name">🏆 Legend</div>
+                    <div class="tier-price">$500+</div>
+                    <ul class="tier-benefits">
+                        <li>All previous perks</li>
+                        <li>Co-founder status</li>
+                        <li>Governance rights</li>
+                        <li>Major PTN airdrop</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>Built with 💜 by <a href="https://github.com/artistichorizonx-web">PTN Team</a></p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">
+                <a href="https://artistichorizonx-web.github.io/ptn-portal/">Home</a> • 
+                <a href="https://etherscan.io/token/0x544DD257F3917fDa2C1D895b775f29BF41158dE6">Token</a> • 
+                <a href="https://github.com/artistichorizonx-web/PhiTractatusNexus-PTN">GitHub</a>
+            </p>
+            <p style="margin-top: 15px; font-size: 0.7rem; color: #666;">
+                hey queen 🌸 • Φ = 1.61803398875
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        function copyAddress(element) {
+            const address = element.textContent;
+            navigator.clipboard.writeText(address).then(() => {
+                const originalText = element.textContent;
+                element.textContent = '✓ Copied!';
+                element.style.color = '#2ecc71';
+                setTimeout(() => {
+                    element.textContent = originalText;
+                    element.style.color = '#fff';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,3 +1,7 @@
 .DS_Store
 .ptn/ports/locks/
 .mind/locks/
+._*
+
+# Local-only client/work files
+fiverr/
