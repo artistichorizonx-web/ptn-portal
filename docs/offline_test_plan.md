@@ -1,69 +1,110 @@
-# Offline/PTN Portal Astral Dock Test Plan
-
-## Objectives
-- Validate that the PORTAL ASTRAL DOCK offline environment operates correctly without network access.
-- Ensure offline commands correctly report system health, economy status, and code/brain module information.
-- Provide operators with a checklist to verify offline readiness and diagnose issues.
-- Document expected outcomes for each test scenario.
-
-## Prerequisites
-- **Environment:** A local machine or server with the PORTAL ASTRAL DOCK application installed. Ensure all dependencies (e.g., Python 3.x, NodeJS, Docker) are installed.
-- **Repository clone:** Clone the PTN portal repository locally and check out the `main` branch.
-- **Offline mode:** Disconnect from external networks or configure firewall rules to block external connections.
-- **Credentials:** Ensure any necessary API keys or tokens for offline mode are configured via environment variables.
-- **Tools:** Access to CLI tools (e.g., `ptnctl` or equivalent) and log viewer.
-
-## Test Scenarios
-
-### 1. Environment Setup Verification
-| Test | Steps | Expected Result |
-|---|---|---|
-| Env‑1 | Verify installation by running `ptnctl version`. | Command returns the installed version and indicates no missing dependencies. |
-| Env‑2 | Start the offline server using `ptnctl start --offline`. | Server starts locally (e.g., `http://127.0.0.1:8787/`) and logs show “Offline mode enabled”. |
-| Env‑3 | Attempt to access external network while in offline mode. | Access is blocked; system should remain offline and provide a warning. |
-
-### 2. Offline Commands – Status Verification
-| Test | Steps | Expected Result |
-|---|---|---|
-| Cmd‑1 | Run `ptnctl status`. | Displays current server status, uptime, memory usage, and confirms offline mode. |
-| Cmd‑2 | Run `ptnctl sync‑status --offline`. | Reports synchronization status with local data stores; no external sync attempts. |
-| Cmd‑3 | Run `ptnctl healthcheck`. | All subsystems show “OK”; no internet dependency errors. |
-
-### 3. Economy Status Checks
-| Test | Steps | Expected Result |
-|---|---|---|
-| Eco‑1 | Run `ptnctl economy status`. | Returns current token supply, balance and any pending offline transactions. |
-| Eco‑2 | Run `ptnctl economy simulate --offline`. | Simulation runs using local economy module and outputs success message. |
-| Eco‑3 | Verify that no network calls are made during economy commands. | Network monitoring shows zero external connections. |
-
-### 4. Code/Brain Overview Validation
-| Test | Steps | Expected Result |
-|---|---|---|
-| Brain‑1 | Run `ptnctl code list`. | Lists available code modules and versions. |
-| Brain‑2 | Run `ptnctl brain overview`. | Provides summary of loaded AI/brain modules, memory footprint, and status. |
-| Brain‑3 | Run `ptnctl brain validate`. | Confirms that brain models are intact, checksums match, and outputs “Validation OK”. |
-
-### 5. Shutdown and Cleanup
-| Test | Steps | Expected Result |
-|---|---|---|
-| Shutdown‑1 | Run `ptnctl stop`. | Stops the offline server gracefully and cleans temporary files. |
-| Shutdown‑2 | Run `ptnctl purge‑cache`. | Cleans cached data; command completes without errors. |
-
-## Expected Outcomes
-- All commands should complete without requiring internet connectivity.
-- Status and economy commands should return data from local storage.
-- Code/brain overview commands should validate integrity and version of modules.
-- Any errors encountered should be logged with clear messages to aid troubleshooting.
-
-## Simple Log Format
-Test operators should log each step in a simple structured format:
-
-| Timestamp | Test ID | Result | Notes |
-|---|---|---|---|
-| 2025-12-22 14:00 | Env‑1 | Pass | Version 1.0.3, dependencies OK |
-| 2025-12-22 14:05 | Cmd‑1 | Pass | Status: Running, offline mode |
-
-Use ISO 8601 timestamps and short notes describing observations. Retain logs for audit and regression analysis.
-
-## References
-This test plan draws on general principles of test planning: establishing clear objectives and scope, defining testing activities, and designing detailed steps and expected results ([Explaining the Duty Statuses in E-Logs Mobile App - T3 Help Center](https://help.estrack.com/en/articles/3687882-explaining-the-duty-statuses-in-e-logs-mobile-app#:~:text=When%20conducting%20a%20penetration%20test,Test%20Plan%20in%2011%20Steps), [[PDF] System Testing in the Avionics Domain](https://d-nb.info/987607650/34#:~:text=on%20the%20preceeding%20SUT%20outputs,fly%20test%20data%20generation)).
+# Offline/PTN Portal Astral Dock Test Plan  
+## Objectives  
+- Validate the PORTAL ASTRAL DOCK offline environment operates correctly without network connectivity.  
+- Ensure offline commands accurately report system health, economy metrics, and code/brain module summaries.  
+- Verify that the economic status subsystem maintains integrity and that code/brain introspection commands return valid overviews.  
+- Provide a repeatable procedure for operators to test offline readiness before deployment or audits.  
+  
+## Prerequisites  
+- **Environment Setup:** a local machine or test server with the PTN Portal and Astral Dock components installed. All dependencies (Python, Node.js, container runtime, database) should be present. The system must be configured to run in offline mode (air‑gapped or firewall rules blocking external network calls).  
+- **Repository Access:** clone or pull the latest `main` branch of the PTN portal repository. The docs folder should be writeable for logging.  
+- **Authentication:** ensure you have necessary credentials or offline tokens to execute internal CLI commands.  
+- **Backup:** optionally back up any existing offline state or configuration before running tests.  
+  
+## Test Scenarios  
+  
+### 1. Environment Initialization  
+**Steps:**  
+1. Start the PORTAL ASTRAL DOCK service in offline mode using the startup script (e.g., `./run_offline.sh`).  
+2. Check that all required services (web UI, API, database) initialize without contacting external endpoints.  
+3. Observe the service logs for errors.  
+  
+**Expected Outcome:**  
+- Services start successfully, and logs indicate offline mode is active with no network errors.  
+  
+### 2. Offline Status Command  
+**Steps:**  
+1. Run the offline status command:  
+   ```  
+   ptn-cli status --offline  
+   ```  
+2. Review the status summary displayed.  
+  
+**Expected Outcome:**  
+- The command returns a summary of core subsystem statuses (e.g., API, database, worker queue) showing "OK" or "Offline-Ready".  
+- No external connectivity checks are attempted.  
+  
+### 3. Economy Status Check  
+**Steps:**  
+1. Execute the economy status command to inspect the local economic subsystem:  
+   ```  
+   ptn-cli economy status --offline  
+   ```  
+2. Verify the returned metrics (token supply, transaction counts, pending queues).  
+  
+**Expected Outcome:**  
+- The command reports current offline economy metrics (e.g., token supply, local ledger height).  
+- All values are within expected ranges and consistent with previous snapshots.  
+  
+### 4. Code Overview Validation  
+**Steps:**  
+1. Execute the code overview command:  
+   ```  
+   ptn-cli code overview --offline  
+   ```  
+2. Examine the output for details on code modules, versions, and checksums.  
+  
+**Expected Outcome:**  
+- The tool lists all key modules with version numbers and hash digests.  
+- Hashes match the expected values recorded in the repository (e.g., via integration.json).  
+  
+### 5. Brain Overview Validation  
+**Steps:**  
+1. Execute the brain overview command:  
+   ```  
+   ptn-cli brain overview --offline  
+   ```  
+2. Review the summary of AI or ML models loaded into the offline environment.  
+  
+**Expected Outcome:**  
+- The command returns information about the brain models (names, versions, last training date).  
+- All required models are loaded and flagged as "Ready".  
+  
+### 6. Simulate Economy Update  
+**Steps:**  
+1. Use the CLI to perform a dry-run economy update:  
+   ```  
+   ptn-cli economy simulate-update --offline  
+   ```  
+2. Confirm that simulation does not attempt to contact external networks and updates internal ledgers.  
+  
+**Expected Outcome:**  
+- The simulation completes without errors.  
+- Economic metrics reflect the simulated update in local state only.  
+  
+### 7. Log Generation and Review  
+**Steps:**  
+1. Collect logs generated during the above tests from the logs directory.  
+2. Verify that log entries include timestamps, command names, and status.  
+  
+**Expected Outcome:**  
+- Logs are stored in the designated offline log folder.  
+- Each entry follows the log format described below.  
+  
+## Expected Outcomes  
+For each scenario above, the expected outcome is provided. In general, commands should succeed without external calls, return structured summaries of system components, and update local state as appropriate. Any deviation (errors, missing modules, mismatched checksums, or network requests) should be recorded as failures.  
+  
+## Simple Log Format  
+Operators should log each test step in a simple, structured format to facilitate auditing. An example log entry format is:  
+  
+```  
+Date/Time: 2025-12-22 14:30 CET  
+Scenario: Offline Status Command  
+Command: ptn-cli status --offline  
+Expected Outcome: Core subsystems report OK/offline-ready  
+Actual Outcome: [enter actual result]  
+Result: [Pass/Fail]  
+Notes: [any additional notes]  
+```  
+  
+Repeat this format for each test scenario. Ensure timestamps are in local time (Europe/Berlin).
