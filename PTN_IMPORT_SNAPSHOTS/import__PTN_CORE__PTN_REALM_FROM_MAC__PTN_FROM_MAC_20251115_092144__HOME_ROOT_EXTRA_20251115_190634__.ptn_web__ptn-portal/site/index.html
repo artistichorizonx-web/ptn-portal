@@ -1,0 +1,28 @@
+<!doctype html><meta charset="utf-8"><title>PTN Portal</title><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="./style.css">
+<header><h1 id="ttl">PTN Portal</h1>
+<div><label for="lang"><small>Lang</small></label>
+<select id="lang"><option>en</option><option>tr</option></select></div></header>
+<p id="tag">Trusted, privacy-first, low-energy repo hygiene.</p>
+<div class="card">
+  <h2 id="prod">PTN Lightning Scan — $59</h2>
+  <p id="desc">HTML dashboard + CSVs + ZIP + 3 action notes. No uploads; runs locally.</p>
+  <p><a class="btn" id="pay" href="#" target="_blank" rel="noopener">Buy $59</a></p>
+</div>
+<p><a id="sample" href="./sample.html">Sample (sanitized)</a></p>
+<footer><small class="muted" id="foot">© PTN • privacy-first • minimal energy</small></footer>
+<script>
+  const qs=new URLSearchParams(location.search);
+  const pay=qs.get('pay')||'https://buymeacoffee.com/yourname/ptn59';
+  const price=Number(qs.get('price')||59);
+  const lang=(qs.get('lang')||navigator.language||'en').slice(0,2);
+  document.getElementById('pay').href=pay;
+  document.getElementById('pay').textContent=(lang==='tr')?`$${price} Satın Al`:`Buy $${price}`;
+  if(lang==='tr'){
+    document.getElementById('tag').textContent='Güvenilir, gizlilik-öncelikli, düşük enerji repo hijyeni.';
+    document.getElementById('prod').textContent=`PTN Hızlı Tarama — $${price}`;
+    document.getElementById('desc').textContent='HTML pano + CSV’ler + ZIP + 3 aksiyon notu. Yükleme yok; yerel çalışır.';
+    document.getElementById('sample').textContent='Örnek (temizlenmiş)';
+    document.getElementById('foot').textContent='© PTN • gizlilik • düşük enerji';
+  }
+</script>
