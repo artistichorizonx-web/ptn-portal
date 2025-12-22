@@ -1,110 +1,154 @@
-# Offline/PTN Portal Astral Dock Test Plan  
-## Objectives  
-- Validate the PORTAL ASTRAL DOCK offline environment operates correctly without network connectivity.  
-- Ensure offline commands accurately report system health, economy metrics, and code/brain module summaries.  
-- Verify that the economic status subsystem maintains integrity and that code/brain introspection commands return valid overviews.  
-- Provide a repeatable procedure for operators to test offline readiness before deployment or audits.  
-  
-## Prerequisites  
-- **Environment Setup:** a local machine or test server with the PTN Portal and Astral Dock components installed. All dependencies (Python, Node.js, container runtime, database) should be present. The system must be configured to run in offline mode (air‑gapped or firewall rules blocking external network calls).  
-- **Repository Access:** clone or pull the latest `main` branch of the PTN portal repository. The docs folder should be writeable for logging.  
-- **Authentication:** ensure you have necessary credentials or offline tokens to execute internal CLI commands.  
-- **Backup:** optionally back up any existing offline state or configuration before running tests.  
-  
-## Test Scenarios  
-  
-### 1. Environment Initialization  
-**Steps:**  
-1. Start the PORTAL ASTRAL DOCK service in offline mode using the startup script (e.g., `./run_offline.sh`).  
-2. Check that all required services (web UI, API, database) initialize without contacting external endpoints.  
-3. Observe the service logs for errors.  
-  
-**Expected Outcome:**  
-- Services start successfully, and logs indicate offline mode is active with no network errors.  
-  
-### 2. Offline Status Command  
-**Steps:**  
-1. Run the offline status command:  
-   ```  
-   ptn-cli status --offline  
-   ```  
-2. Review the status summary displayed.  
-  
-**Expected Outcome:**  
-- The command returns a summary of core subsystem statuses (e.g., API, database, worker queue) showing "OK" or "Offline-Ready".  
-- No external connectivity checks are attempted.  
-  
-### 3. Economy Status Check  
-**Steps:**  
-1. Execute the economy status command to inspect the local economic subsystem:  
-   ```  
-   ptn-cli economy status --offline  
-   ```  
-2. Verify the returned metrics (token supply, transaction counts, pending queues).  
-  
-**Expected Outcome:**  
-- The command reports current offline economy metrics (e.g., token supply, local ledger height).  
-- All values are within expected ranges and consistent with previous snapshots.  
-  
-### 4. Code Overview Validation  
-**Steps:**  
-1. Execute the code overview command:  
-   ```  
-   ptn-cli code overview --offline  
-   ```  
-2. Examine the output for details on code modules, versions, and checksums.  
-  
-**Expected Outcome:**  
-- The tool lists all key modules with version numbers and hash digests.  
-- Hashes match the expected values recorded in the repository (e.g., via integration.json).  
-  
-### 5. Brain Overview Validation  
-**Steps:**  
-1. Execute the brain overview command:  
-   ```  
-   ptn-cli brain overview --offline  
-   ```  
-2. Review the summary of AI or ML models loaded into the offline environment.  
-  
-**Expected Outcome:**  
-- The command returns information about the brain models (names, versions, last training date).  
-- All required models are loaded and flagged as "Ready".  
-  
-### 6. Simulate Economy Update  
-**Steps:**  
-1. Use the CLI to perform a dry-run economy update:  
-   ```  
-   ptn-cli economy simulate-update --offline  
-   ```  
-2. Confirm that simulation does not attempt to contact external networks and updates internal ledgers.  
-  
-**Expected Outcome:**  
-- The simulation completes without errors.  
-- Economic metrics reflect the simulated update in local state only.  
-  
-### 7. Log Generation and Review  
-**Steps:**  
-1. Collect logs generated during the above tests from the logs directory.  
-2. Verify that log entries include timestamps, command names, and status.  
-  
-**Expected Outcome:**  
-- Logs are stored in the designated offline log folder.  
-- Each entry follows the log format described below.  
-  
-## Expected Outcomes  
-For each scenario above, the expected outcome is provided. In general, commands should succeed without external calls, return structured summaries of system components, and update local state as appropriate. Any deviation (errors, missing modules, mismatched checksums, or network requests) should be recorded as failures.  
-  
-## Simple Log Format  
-Operators should log each test step in a simple, structured format to facilitate auditing. An example log entry format is:  
-  
-```  
-Date/Time: 2025-12-22 14:30 CET  
-Scenario: Offline Status Command  
-Command: ptn-cli status --offline  
-Expected Outcome: Core subsystems report OK/offline-ready  
-Actual Outcome: [enter actual result]  
-Result: [Pass/Fail]  
-Notes: [any additional notes]  
-```  
-  
-Repeat this format for each test scenario. Ensure timestamps are in local time (Europe/Berlin).
+# PTN Offline Test Plan
+## PORTAL ASTRAL DOCK
+
+This document defines an offline-first test plan for the **PORTAL ASTRAL DOCK** workflow in the PTN ecosystem. The goal is to validate core behavior without network access, prevent secret leakage, and provide repeatable evidence via logs and exported artifacts.
+
+---
+
+## Objectives
+
+- Verify **offline operability** of the Portal dock workflow (no network required).
+- Confirm **repository hygiene** expectations: no secrets committed, predictable structure, reproducible outputs.
+- Validate **status commands** and local diagnostics for runtime readiness.
+- Perform **economy safety checks** (configuration integrity only, no unintended transactions).
+- Validate **code/brain overviews** (manifests, module topology, memory summaries) without exposing private data.
+- Produce a minimal **test log** suitable for audits and regression tracking.
+
+---
+
+## Prerequisites
+
+### Environment Setup (Offline)
+
+- OS: macOS / Linux
+- Tools:
+  - `git`
+  - `python` (3.10+ recommended)
+  - `pip`
+- Optional tools (if present):
+  - `node` / `npm`
+  - `jq`
+  - `ollama`
+
+### Local Workspace
+
+- Repository cloned locally and accessible.
+- You can run:
+  - `git status`
+  - `python -V`
+  - `pip -V`
+
+### Safety Requirements
+
+- Do **not** commit real secrets:
+  - `.env`, `*.pem`, `*.key`, `*.p12`, seed phrases, API keys, private wallet keys.
+- Ensure `.gitignore` excludes:
+  - `.env`
+  - `*.pem` / `*.key` / `*.p12`
+  - `**/secrets/**`
+  - `**/.ptn_private/**` (if used)
+
+---
+
+## Test Scenarios
+
+### 1) Offline Status Verification
+
+**Steps**
+1. Disable network (Airplane mode / unplug Ethernet).
+2. Run:
+   - `git status -sb`
+   - `git log -1 --oneline`
+   - `git rev-parse --abbrev-ref HEAD`
+   - `git rev-parse HEAD`
+   - `git diff --name-only --diff-filter=U`
+
+**Expected Outcomes**
+- Commands work offline.
+- No unmerged entries.
+- Repo is on expected branch (`main` or a designated test branch).
+
+---
+
+### 2) Offline Runtime Readiness
+
+**Commands**
+- `python -V`
+- `pip -V`
+- `git --version`
+- Optional:
+  - `node -v`
+  - `npm -v`
+  - `jq --version`
+  - `ollama --version`
+  - `ollama list`
+  - `ollama ps`
+
+**Expected Outcomes**
+- Required tools report versions without network calls.
+- Optional tools fail gracefully if not installed.
+
+---
+
+### 3) Repo Hygiene Scan (Offline)
+
+**Goal:** identify risky filenames without printing secret values.
+
+**Commands**
+- Names only:
+  - `find . -maxdepth 6 -type f \( -name ".env" -o -name "*.pem" -o -name "*.key" -o -name "*.p12" -o -iname "*secret*" -o -iname "*token*" -o -iname "*private*" -o -iname "*seed*" \) | head -n 50`
+- Ensure secrets are not tracked:
+  - `git ls-files | grep -E "(\.env$|\.pem$|\.key$|\.p12$)" || true`
+
+**Expected Outcomes**
+- No secret/key material is tracked by git.
+- `.gitignore` contains rules to exclude secrets.
+
+---
+
+### 4) Economy Status Checks (Offline Safety)
+
+**Goal:** verify configuration integrity only, no transactions.
+
+**Steps**
+1. Locate economy/ledger configs:
+   - `find . -maxdepth 6 -type f -iname "*economy*.json" -o -iname "*ledger*.json" -o -iname "*wallet*.json" | head -n 50`
+2. Validate JSON structure (no values printed):
+   - `python - <<PY\nimport json, glob\npaths = glob.glob(\"**/*economy*.json\", recursive=True) + glob.glob(\"**/*ledger*.json\", recursive=True) + glob.glob(\"**/*wallet*.json\", recursive=True)\nfor p in paths[:200]:\n  try:\n    json.load(open(p, \"r\", encoding=\"utf-8\"))\n    print(\"OK_JSON\", p)\n  except Exception as e:\n    print(\"BAD_JSON\", p, str(e))\nPY`
+
+**Expected Outcomes**
+- Economy-related JSON (if any) parses cleanly.
+- No transaction commands are executed.
+- No secrets are revealed in console logs.
+
+---
+
+### 5) Validate Code/Brain Overviews (Offline)
+
+**Steps**
+1. Identify manifests/modules:
+   - `find . -maxdepth 6 -type f -iname "*manifest*.json" -o -iname "*manifest*.yml" -o -iname "*manifest*.yaml" -o -iname "*module*.json" | head -n 50`
+2. Summarize topology (offline-safe):
+   - `python - <<PY\nimport os\ncount=0\nfor d,_,fs in os.walk(.):\n  if /.git/ in d or /node_modules/ in d: continue\n  for f in fs:\n    if f.endswith((.md,.json,.yml,.yaml,.toml,.py,.js,.ts,.html,.css)):\n      count += 1\nprint(TOPOLOGY_FILES, count)\nPY`
+
+**Expected Outcomes**
+- Manifest files exist (if expected) and are discoverable.
+- Topology output is consistent between runs (within expected diffs).
+- No network calls are required for overview generation.
+
+---
+
+## Expected Outcomes
+
+- Offline verification completes without network access.
+- Repo has no unmerged files after test.
+- Hygiene checks show no secrets tracked by git.
+- Economy configuration files (if present) parse correctly.
+- Code/brain overview artifacts can be generated locally.
+- A log entry exists for traceability.
+
+---
+
+## Simple Log Format
+
+
