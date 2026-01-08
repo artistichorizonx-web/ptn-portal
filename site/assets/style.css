@@ -1,26 +1,4 @@
-:root { --bg:#0b1220; --card:#111b30; --text:#e9eefc; --muted:#a9b4d6; --accent:#79ffe1; --accent2:#ffd479; --line:#223055; }
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial; background:linear-gradient(180deg,#070b14,#0b1220 40%, #0a1020); color:var(--text); line-height:1.5}
-a{color:var(--accent); text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:1060px; margin:0 auto; padding:28px}
-.nav{display:flex; gap:14px; flex-wrap:wrap; align-items:center; justify-content:space-between; padding:14px 0}
-.brand{display:flex; gap:10px; align-items:center}
-.logo{width:34px;height:34px;border-radius:12px;background:radial-gradient(circle at 30% 30%, var(--accent), #3b82f6); box-shadow:0 10px 40px rgba(121,255,225,.18)}
-.badge{font-size:12px; padding:6px 10px; border:1px solid var(--line); border-radius:999px; color:var(--muted)}
-.links{display:flex; gap:14px; flex-wrap:wrap}
-.hero{display:grid; grid-template-columns:1.2fr .8fr; gap:18px; margin-top:16px}
-@media (max-width:900px){.hero{grid-template-columns:1fr}}
-.card{background:rgba(17,27,48,.78); border:1px solid var(--line); border-radius:18px; padding:18px; box-shadow:0 14px 60px rgba(0,0,0,.35)}
-.h1{font-size:40px; line-height:1.05; margin:0}
-.p{color:var(--muted); margin:12px 0 0}
-.cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
-.btn{display:inline-block; padding:10px 14px; border-radius:14px; border:1px solid var(--line); background:rgba(0,0,0,.22)}
-.btn.primary{border-color:rgba(121,255,225,.5); background:rgba(121,255,225,.12)}
-.grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:14px}
-@media (max-width:900px){.grid{grid-template-columns:1fr}}
-.k{font-weight:700}
-.footer{margin-top:26px; color:var(--muted); font-size:13px}
-.hr{height:1px; background:var(--line); margin:18px 0}
-.small{font-size:13px; color:var(--muted)}
+html,body{margin:0;padding:0;font-family:system-ui;background:#0b1020;color:#eaf0ff}
+main{max-width:900px;margin:0 auto;padding:28px}
+a{color:#7dd3fc}
+.card{border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:18px;background:rgba(17,26,51,.72)}
